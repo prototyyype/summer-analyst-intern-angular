@@ -1,0 +1,41 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {padding: 20px;}
+
+.form-control.ng-touched.ng-invalid {
+    border: 2px solid red;
+}
+
+/* Testing Background Colors */
+
+  .bg-kaiser-green {
+    background-color: rgb(153, 255, 153);
+  }
+
+  .purple {
+    background-color: purple;
+  }
+
+  .pink {
+    background-color: pink;
+  }
+
+  .white {
+    background-color: white;
+  }
+
+  .green {
+    background-color: green;
+  }
+
+  .red {
+    background-color: red;
+  }
+
+  .orange {
+    background-color: orange;
+  }
+
+  .blue {
+    background-color: blue;
+  }

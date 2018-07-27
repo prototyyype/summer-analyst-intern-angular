@@ -1,0 +1,57 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-top-navbar></app-top-navbar>
+
+<div id="mainView" class="container-fluid">
+    <!-- Contains sidenavbar and patient module -->
+    <app-side-navbar></app-side-navbar>
+    
+    <div class="text-success" id="fixmeList">
+        <h1>Fixme List</h1>
+        <ul>
+            <li>Create Index Module
+                <ul>
+                    <!-- app-top-navbar -->
+                    <li>COMP: Top Nav Bar</li>
+                    <!-- app-side-navbar -->
+                    <li>COMP: Side Nav Bar
+                        <ul>
+                            <li>ATTACH LINKS TO NAV LINKS BELOW</li>
+                            <li>Home</li>
+                            <li>Profile</li>
+                            <li>Appointments</li>
+                            <li>Contact Doctor</li>
+                            <li>Settings</li>
+                        </ul>
+                    </li>
+                    <li>MODULE: Main Dashboard</li>
+                    <ul>
+                        <li>Welcome Patient Bar</li>
+                        <li>Left Board</li>
+                        <ul>
+                            <li>Today's Weather View</li>
+                            <li>Current Time View</li>
+                            <li>Create Appt</li>
+                            <li>My History</li>
+                        </ul>
+                        <li>Today's Date View</li>
+                    </ul>
+                    <li>Maybe a Footer??</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+<br><br>
+
+<div
+    *ngIf = "things.length > 0; then thingsList else noThings">
+</div>
+<ng-template #thingsList>
+    List of Things
+</ng-template>
+<ng-template #noThings>
+    No things yet
+</ng-template>
