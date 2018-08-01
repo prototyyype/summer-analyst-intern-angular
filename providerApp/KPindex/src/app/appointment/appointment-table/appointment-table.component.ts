@@ -13,5 +13,13 @@ export class AppointmentTableComponent implements OnInit {
 
   ngOnInit() {
   }
+  //
+  // cars: Car[];
+  //
+  //     constructor(private carService: CarService) { }
+  //
+  //     ngOnInit() {
+  //         this.carService.getCarsSmall().then(cars => this.cars = cars);
+  //     }
 
 }
