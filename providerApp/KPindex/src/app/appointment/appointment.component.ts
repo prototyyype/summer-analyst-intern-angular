@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ButtonModule } from "primeng/primeng";
+import {TableModule} from 'primeng/table';
 
 @Component({
   selector: 'app-appointment',

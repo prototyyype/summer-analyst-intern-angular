@@ -1,0 +1,159 @@
+<p>appointment table component works!</p>
+
+<p-table></p-table>
+
+<!-- <div style="text-align:right">
+	<p-button label="Add" id="button-add" (click)="showDialogToAdd()"></p-button>
+	<button pButton type="button" label="Add" id="buton-add">Add</button>
+</div> -->
+<!--
+<p-table [value]="(staffState | async).staffs" sortField="description" selectionMode="single" [(selection)]="selectedStaffType"
+	(onRowSelect)="onRowSelect($event)">
+
+	<ng-template pTemplate="header">
+		<tr>
+			<th *ngFor="let col of columns" [pSortableColumn]="col.description">{{ col.title }}</th>
+		</tr>
+	</ng-template>
+
+	<ng-template pTemplate="body" let-staff let-i="rowIndex">
+		<tr [pSelectableRow]="staff">
+			<td>{{ staff.description }}</td>
+			<td>{{ staff.code }}</td>
+			<td>{{ staff.role }}</td>
+			<td>{{ staff.active }}</td>
+			<td>{{ staff.modifiedBy }}</td>
+			<td>{{ staff.modifiedDate }}</td>
+		</tr>
+	</ng-template>
+
+	<!- <ng-template pTemplate="summary">
+		<div style="text-align:right">
+			<button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+		</div>
+	</ng-template> -->
+<!-- </p-table>
+
+<p-dialog [header]="newStaffType ? 'Add Staff Type' : 'Update Staff Type'" [(visible)]="displayDialog" [width]="500"> -->
+	<!-- <div class="col-md-12">
+		<label for="code">Staff Type Code</label>
+		<input type="text" pInputText id="code" [(ngModel)]="property"/>
+	</div> -->
+	<!-- <div class="ui-g ui-fluid" *ngIf="staffType">
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="code">Staff Type Code</label>
+			</div>
+			<div class="ui-g-8">
+				<input pInputText id="code" [(ngModel)]="staffType.code" style="width:100%" required/>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="description">Staff Type Description</label>
+			</div>
+			<div class="ui-g-8">
+				<input pInputText id="description" [(ngModel)]="staffType.description" style="width:100%" required/>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="role">Staff Role</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="selectpicker show-tick"
+					id="role"
+					name="role"
+					[(ngModel)]="staffType.role" required>
+					<option disabled selected value></option>
+					<option>AGENT</option>
+					<option>MD</option>
+					<option>RN</option>
+				</select> -->
+				<!-- <input pInputText id="role" [(ngModel)]="staffType.role"/> -->
+			<!-- </div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="call-after-work">Enabled After Call Work</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="selectpicker show-tick"
+					id="call-after-work"
+					ngModel required disabled>
+					<option disabled selected value></option>
+				</select>
+			</div>
+		</div>
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<label for="restrict-call-history">Restrict Call History</label>
+			</div>
+			<div class="ui-g-8">
+				<select class="restrict-call-history"
+					id="call-after-work"
+					ngModel required disabled>
+					<option disabled selected value></option>
+				</select>
+			</div>
+		</div>
+
+		<p-footer>
+			<div class="ui-dialog-buttonpane ui-helper-clearfix">
+				<button type="button" class="btn btn-default" [(disabled)]="staffDisabled" (click)="activate()">{{ this.staffType.active == '' || this.staffType.active == 'N' ? 'Activate' : 'Deactivate' }}</button>
+				<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
+				<button type="button" class="btn btn-default" (click)="save()">Save</button>
+			</div>
+		</p-footer>
+	</div>
+</p-dialog> -->
+
+<!-- <div class="modal" id="editModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Update Staff Type</h4>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="input">
+									<label for="code">Staff Type Code</label>
+									<input type="number" id="code" class="form-control" disabled #amountInput>
+								</div>
+								<div class="input">
+									<label for="description">Staff Type Description</label>
+									<input type="text" id="description" class="form-control" #measurementInput>
+								</div>
+								<div class="input">
+									<label for="role">Staff Role</label>
+									<input type="text" id="role" class="form-control" #nameInput>
+								</div>
+								<div class="input">
+									<label for="enable-call">Enable After Call Work</label>
+									<select id="enable-call" disabled>
+										<option value="y">Yes</option>
+										<option value="n">No</option>
+									</select>
+								</div>
+								<div class="input">
+									<label for="restrict-call-history">Restrict Call History</label>
+									<select id="enable-call" disabled>
+										<option value="y">Yes</option>
+										<option value="n">No</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" (click)="deactivateStaff()">Deactivate</button>
+					<button type="button" class="btn btn-default" (click)="closeModal()">Cancel</button>
+					<button type="button" class="btn btn-default" (click)="updateStaff()">Save</button>
+				</div>
+			</div>
+		</div>
+	</div> -->
