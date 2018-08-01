@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from "primeng/primeng";
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { AppointmentType } from './appointment.model';
 
 @Component({

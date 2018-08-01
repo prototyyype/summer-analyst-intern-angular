@@ -8,7 +8,6 @@ import { AppointmentTableComponent } from "src/app/appointment/appointment-table
 import { AppointmentComponent } from "src/app/appointment/appointment.component";
 
 
-
 @NgModule({
   declarations: [
     AppointmentComponent,
