@@ -12,6 +12,7 @@ import { MenuItem } from 'primeng/api';
 
 import { RouterModule } from  "@angular/router";
 import { AppComponent } from './app.component';
+
 import { TopNavbarComponent } from './top-navbar/top-navbar.component';
 import { SideNavbarComponent } from './side-navbar/side-navbar.component';
 import { AppointmentModule } from 'src/app/appointment/appointment.module';
