@@ -1,4 +1,4 @@
-import  { AppointmentType } from './appointment/appointment.model';
+import  { AppointmentType } from './appointment.model';
 
 export class AppointmentService {
   appointments: AppointmentType[] = [
