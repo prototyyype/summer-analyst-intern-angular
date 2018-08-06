@@ -16,7 +16,8 @@ import { AppointmentComponent } from "src/app/appointment/appointment.component"
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    TableModule
   ],
   providers: [],
   exports: [AppointmentComponent, CreateAppointmentComponent, AppointmentTableComponent]
