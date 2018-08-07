@@ -10,7 +10,7 @@ export class AppointmentTableComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
   //
   // cars: Car[];
