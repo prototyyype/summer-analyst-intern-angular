@@ -1,20 +1,34 @@
-import { ActionReducer, Action } from '@ngrx/store';
+import * as AppointmentTypeActions from './appointment.actions';
+import { AppointmentType } from '../appointment.model';
 
-export const INCREMENT = 'INCREMENT';
-export const DECREMENT = 'DECREMENT';
-export const RESET = 'RESET';
+export interface AppState {
+	appointmentState: State
+}
 
-export function counterReducer(state: number = 0, action: Action) {
+export interface State {
+	appointments: AppointmentType[];
+	addedAppointment: AppointmentType;
+}
+
+const initialState: State = {
+	appointments: [
+    new AppointmentType('July 31, 2018', '11:50:00 AM PDT', 'Flu Shots', 'Dr. Smith'),
+    new AppointmentType('August 1, 2018', '7:00:00 AM PDT', 'Physical Examination', 'Dr. James'),
+    new AppointmentType('July 29, 2018', '3:00:00 PM PDT', 'Urgent Care', 'Dr. King')
+  ],
+	addedAppointment: null
+};
+
+export function appointmentTypeReducer(state = initialState, action: AppointmentTypeActions.AppointmentTypeActions) {
 	switch (action.type) {
-		case INCREMENT:
-			return state + 1;
-
-		case DECREMENT:
-			return state - 1;
-
-		case RESET:
-			return 0;
-
+		case AppointmentTypeActions.ADD_APPOINTMENT:
+			return {
+				...state,
+				appointments: [...state.appointments, action.payload]
+			};
+		case AppointmentTypeActions.EDIT_APPOINTMENT:
+			// return {
+			//}
 		default:
 			return state;
 	}
