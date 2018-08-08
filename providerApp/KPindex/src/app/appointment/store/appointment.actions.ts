@@ -14,16 +14,7 @@ export class AddAppointment implements Action {
 export class EditAppointment implements Action {
 	readonly type = EDIT_APPOINTMENT;
 
-	constructor(public payload: {appointmentType: AppointmentType}) { }	// constructor(public payload: StaffType) { }
+	constructor(public payload: {appointmentType: AppointmentType}) { }
 }
-// export class StartAdd implements Action {
-// 	readonly type = START_ADD;
-
-// 	constructor(public payload: number) { }
-// }
-
-// export class StopAdd implements Action {
-// 	readonly type = STOP_ADD;
-// }
 
 export type AppointmentTypeActions = AddAppointment | EditAppointment;

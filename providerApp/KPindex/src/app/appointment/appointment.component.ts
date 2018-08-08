@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Subscription } from "rxjs";
-
-import { ButtonModule } from "primeng/primeng";
 import { TableModule } from 'primeng/table';
 
 import { AppointmentType } from './appointment.model';

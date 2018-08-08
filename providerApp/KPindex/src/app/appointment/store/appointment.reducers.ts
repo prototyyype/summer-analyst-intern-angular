@@ -27,8 +27,7 @@ export function appointmentTypeReducer(state = initialState, action: Appointment
 				appointments: [...state.appointments, action.payload]
 			};
 		case AppointmentTypeActions.EDIT_APPOINTMENT:
-			// return {
-			//}
+			
 		default:
 			return state;
 	}
