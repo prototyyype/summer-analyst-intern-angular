@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import {TableModule} from 'primeng/table';
 import { StoreModule } from '@ngrx/store';
+import { ButtonModule } from "primeng/button";
 
 import { CreateAppointmentComponent } from "src/app/appointment/create-appointment/create-appointment.component";
 import { AppointmentTableComponent } from "src/app/appointment/appointment-table/appointment-table.component";
@@ -21,6 +22,7 @@ import { appointmentTypeReducer } from "./store/appointment.reducers";
     BrowserModule,
     FormsModule,
     TableModule,
+    ButtonModule,
     StoreModule.forRoot({appointmentState: appointmentTypeReducer})
   ],
   providers: [AppointmentService],

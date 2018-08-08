@@ -1,5 +1,6 @@
 <div style="text-align: right">
-  <button pButton label="Add" id="button-create-appointment" class="ui-button-secondary" (click)="showDialogToAdd()">Add</button>
+  <button pButton label="Add" id="button-create-appointment" class="ui-button-secondary" (click)="showDialogToAdd()"></button>
+  <!-- <p-button></p-button> -->
 </div>
 
 <p-table [value]="(appointmentState | async).appointments">
