@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AccordionModule } from 'primeng/components/accordion/accordion';
 import { PanelModule } from 'primeng/components/panel/panel';
-import { ButtonModule } from 'primeng/components/button/button';
+import { ButtonModule } from "primeng/button";
 import { RadioButtonModule } from 'primeng/components/radioButton/radioButton';
 import { MenuItem } from 'primeng/api';
 

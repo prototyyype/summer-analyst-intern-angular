@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonModule } from 'primeng/button';
+// import { ButtonModule } from "primeng/button";
+import { Observable } from "rxjs";
+
+import { AppointmentService } from '../appointment.service';
+import { AppointmentType } from '../appointment.model';
+import * as AppointmentTypeActions from '../store/appointment.actions';
+import * as fromAppointmentType from '../store/appointment.reducers';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-appointment-appt-table',
@@ -7,18 +14,65 @@ import { ButtonModule } from 'primeng/button';
   styleUrls: ['./appointment-table.component.scss']
 })
 export class AppointmentTableComponent implements OnInit {
+  appointmentState: Observable<{appointments: AppointmentType[]}>;
+  columns: {description: string, title: string}[];
 
-  constructor() { }
+  appointmentType: AppointmentType;
+  selectedAppointmentType: AppointmentType;
+  displayDialog: boolean;
+  displayUpdateDialog: boolean;
+  newAppointmentType: boolean;
+  appointmentDisabled: boolean;
 
-  ngOnInit() { 
+  constructor(
+    private appointmentService: AppointmentService,
+    private store: Store<fromAppointmentType.AppState>) {}
+
+  ngOnInit() {
+    this.appointmentState = this.store.select('appointmentState');
+    this.columns = this.appointmentService.getColumns();
   }
-  //
-  // cars: Car[];
-  //
-  //     constructor(private carService: CarService) { }
-  //
-  //     ngOnInit() {
-  //         this.carService.getCarsSmall().then(cars => this.cars = cars);
-  //     }
+
+  // ADD NEW APPOINTMENT
+  showDialogToAdd() {
+    this.appointmentDisabled = true;
+    this.newAppointmentType = true;
+    this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
+    this.displayDialog = true;
+  }
+
+
+  onRowSelect(event) {
+    this.appointmentDisabled = false;
+    this.newAppointmentType = false;
+    this.appointmentType = this.appointmentType = this.cloneAppointmentType(event.data);
+    this.displayDialog = true;
+  }
+
+  cloneAppointmentType(a: AppointmentType): AppointmentType {
+    let appointmentType = this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
+    for (let item in a) {
+      appointmentType[item] = a[item];
+    }
+    return appointmentType;
+  }
+
+  save() {
+    if (this.newAppointmentType) {
+      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
+      this.store.dispatch(new AppointmentTypeActions.AddAppointment(newAppointment));
+    } else {
+      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
+      this.store.dispatch(new AppointmentTypeActions.EditAppointment({appointmentType: newAppointment}));
+    }
+
+    this.appointmentType = null;
+    this.displayDialog = false;
+  }
+
+  cancel() {
+    this.displayDialog = false;
+    this.displayUpdateDialog = false;
+  }
 
 }

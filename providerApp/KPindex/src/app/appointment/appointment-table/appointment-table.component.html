@@ -1,35 +1,23 @@
-<p>appointment table component works!</p>
+<div style="text-align: right">
+  <p-button label="Add" id="button-create-appointment" (click)="showDialogToAdd()"></p-button>
+</div>
 
-<p-table [value]="appointments">
+<p-table [value]="(appointmentState | async).appointments">
   <ng-template pTemplate="header">
 		<tr>
-     <!-- FIXME: How do I connect my getColumns function in appointment.service.ts to this element? -->
-		  <!-- <th *ngFor="let col of columns" [pSortableColumn]="col.description">
+		  <th *ngFor="let col of columns" [pSortableColumn]="col.description">
         {{ col.title }}
-      </th> --> 
-      Testing
+      </th>
 		</tr>
 	</ng-template>
 
-	<ng-template pTemplate="body" let-appointment>
-		<tr [pSelectableRow]="staff">
-			<td>{{ appointment.date }}</td>
-			<td>{{ appointment.time }}</td>
-			<td>{{ appointment.medService }}</td>
-			<td>{{ appointment.doctor }}</td>
+	<ng-template pTemplate="body" let-appointments>
+		<tr [pSelectableRow]="appointments">
+			<td>{{ appointments.date }}</td>
+			<td>{{ appointments.time }}</td>
+			<td>{{ appointments.medService }}</td>
+			<td>{{ appointments.doctor }}</td>
+      <td>FIXME: ADD EDIT AND DELETE ICONS HERE</td>
 		</tr>
 	</ng-template>
 </p-table>
-
-
-
-<!-- <p-table [value]="cars">
-    <ng-template pTemplate="header">
-        <tr>
-            <th>Vin</th>
-            <th>Year</th>
-            <th>Brand</th>
-            <th>Color</th>
-        </tr>
-    </ng-template>
-</p-table> -->
