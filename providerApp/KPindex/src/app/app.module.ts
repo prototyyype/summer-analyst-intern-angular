@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AccordionModule } from 'primeng/components/accordion/accordion';
 import { PanelModule } from 'primeng/components/panel/panel';
 import { ButtonModule } from "primeng/button";
+import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule } from 'primeng/components/radioButton/radioButton';
 import { MenuItem } from 'primeng/api';
 
@@ -35,6 +36,7 @@ import { HttpModule } from "@angular/http";
     AccordionModule,
     PanelModule,
     ButtonModule,
+    DialogModule,
     RadioButtonModule,
     RouterModule
   ],
