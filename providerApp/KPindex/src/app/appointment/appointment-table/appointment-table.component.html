@@ -29,17 +29,24 @@
 	</ng-template>
 </p-table>
 
+<!-- ADD APPOINTMENT MODAL -->
+
 <p-dialog [header]="newAppointmentType ? 'Add appointment Type' : 'Update Appointent Type'" [(visible)]="displayDialog" [width]="500">
-	<div class="ui-g ui-fluid" >
-    <!-- *ngIf="appointmentType" -->
+	<div class="ui-g ui-fluid" *ngIf="appointmentType">
+
 		<div class="ui-g-12">
 			<div class="ui-g-4">
 				<label for="date">Appointment Date</label>
 			</div>
 			<div class="ui-g-8">
         <!-- FIXME: add inputText field -->
-        <input type="date" name="apptDate">
-				<!-- <input pInputText id="code" [(ngModel)]="staffType.code" style="width:100%" required/> -->
+        <input
+        pInputText
+        id="date"
+        [(ngModel)]="appointmentType.date"
+        type="date"
+        name="apptDate">
+
 			</div>
 		</div>
 		<div class="ui-g-12">
@@ -49,6 +56,7 @@
       <select
         class="selectpicker show-tick"
         id="timeSelector"
+        [(ngModel)]="appointmentType.time"
         required>
         <option disabled selected value></option>
         <option value="9:00 AM">9:00 AM</option>
@@ -74,8 +82,10 @@
 				<label for="medService">Medical Service</label>
 			</div>
 			<div class="ui-g-8">
-				<select class="selectpicker show-tick"
+				<select
+          class="selectpicker show-tick"
 					id="serviceSelector"
+          [(ngModel)]="appointmentType.medService"
 					required>
 					<option disabled selected value></option>
           <option>Physical Examination</option>
@@ -94,18 +104,18 @@
 			<div class="ui-g-8">
 				<select class="selectpicker show-tick"
 					id="doctorSelector"
+          [(ngModel)]="appointmentType.doctor"
 					required>
 					<option disabled selected value></option>
-          <option value="1">Dr. Jennica</option>
-          <option value="2">Dr. Gary</option>
-          <option value="4">Dr. Ruth</option>
+          <option>Dr. Jennica</option>
+          <option>Dr. Gary</option>
+          <option>Dr. Ruth</option>
 				</select>
 			</div>
 		</div>
 
 		<p-footer>
 			<div class="ui-dialog-buttonpane ui-helper-clearfix">
-				<!-- <button type="button" class="btn btn-default" [(disabled)]="appointmentDisabled" (click)="activate()">{{ this.appointmentType.active == '' || this.appointmentType.active == 'N' ? 'Activate' : 'Deactivate' }}</button> -->
 				<button type="button" class="btn btn-default" (click)="cancel()">Cancel</button>
 				<button type="button" class="btn btn-default" (click)="save()">Save</button>
 			</div>
