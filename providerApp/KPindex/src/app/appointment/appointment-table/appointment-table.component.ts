@@ -57,18 +57,7 @@ export class AppointmentTableComponent implements OnInit {
     return appointmentType;
   }
 
-  save() {
-    if (this.newAppointmentType) {
-      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
-      this.store.dispatch(new AppointmentTypeActions.AddAppointment(newAppointment));
-    } else {
-      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
-      this.store.dispatch(new AppointmentTypeActions.EditAppointment({appointmentType: newAppointment}));
-    }
 
-    this.appointmentType = null;
-    this.displayDialog = false;
-  }
 
   cancel() {
     this.displayDialog = false;
