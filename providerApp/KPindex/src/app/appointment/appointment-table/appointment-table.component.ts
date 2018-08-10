@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // import { ButtonModule } from "primeng/button";
 import { Observable } from "rxjs";
-
 import { AppointmentService } from '../appointment.service';
 import { AppointmentType } from '../appointment.model';
 import * as AppointmentTypeActions from '../store/appointment.actions';
@@ -22,7 +21,6 @@ export class AppointmentTableComponent implements OnInit {
   displayDialog: boolean;
   displayUpdateDialog: boolean;
   newAppointmentType: boolean;
-  appointmentDisabled: boolean;
 
   constructor(
     private appointmentService: AppointmentService,
@@ -35,15 +33,17 @@ export class AppointmentTableComponent implements OnInit {
 
   // ADD NEW APPOINTMENT
   showDialogToAdd() {
-    this.appointmentDisabled = true;
+    // this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
     this.newAppointmentType = true;
-    this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
     this.displayDialog = true;
+
   }
 
+  saved(event) {
+    this.displayDialog = false;
+  }
 
   onRowSelect(event) {
-    this.appointmentDisabled = false;
     this.newAppointmentType = false;
     this.appointmentType = this.appointmentType = this.cloneAppointmentType(event.data);
     this.displayDialog = true;
@@ -57,11 +57,8 @@ export class AppointmentTableComponent implements OnInit {
     return appointmentType;
   }
 
-
-
   cancel() {
     this.displayDialog = false;
     this.displayUpdateDialog = false;
   }
-
 }

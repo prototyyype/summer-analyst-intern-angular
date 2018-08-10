@@ -29,4 +29,5 @@
 	</ng-template>
 </p-table>
 
-<app-appointment-create-appt></app-appointment-create-appt>
+<app-appointment-create-appt [displayDialog]="displayDialog" [newAppointmentType]="newAppointmentType"
+(saved)="saved($event)"></app-appointment-create-appt>
