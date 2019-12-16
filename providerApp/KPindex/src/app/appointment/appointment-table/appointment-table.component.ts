@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// import { ButtonModule } from "primeng/button";
-import { Observable } from "rxjs";
+// import { ButtonModule } from 'primeng/button';
+import { Observable } from 'rxjs';
 
 import { AppointmentService } from '../appointment.service';
 import { AppointmentType } from '../appointment.model';
@@ -50,19 +50,21 @@ export class AppointmentTableComponent implements OnInit {
   }
 
   cloneAppointmentType(a: AppointmentType): AppointmentType {
-    let appointmentType = this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
-    for (let item in a) {
-      appointmentType[item] = a[item];
+    const appointmentType = this.appointmentType = {date: '', time: '', medService: '', doctor: ''};
+    for (const item in a) {
+      if (a.hasOwnProperty(item)) {
+        appointmentType[item] = a[item];
+      }
     }
     return appointmentType;
   }
 
   save() {
+    const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time,
+      this.appointmentType.medService, this.appointmentType.doctor);
     if (this.newAppointmentType) {
-      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
       this.store.dispatch(new AppointmentTypeActions.AddAppointment(newAppointment));
     } else {
-      const newAppointment = new AppointmentType(this.appointmentType.date, this.appointmentType.time, this.appointmentType.medService, this.appointmentType.doctor);
       this.store.dispatch(new AppointmentTypeActions.EditAppointment({appointmentType: newAppointment}));
     }
 

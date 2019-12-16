@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonModule } from "primeng/button";
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-top-navbar',
